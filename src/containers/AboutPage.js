@@ -21,46 +21,28 @@ class AboutPage extends Component {
         <ListGroup>
           <ListGroup.Item>
             <p>
-              - Total Number of Mentions for 2020 and % of Growth versus 2019
+              What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the
+              printing and typesetting industry. Lorem Ipsum has been the
+              industry's standard dummy text ever since the 1500s, when an
+              unknown printer took a galley of type and scrambled it to make a
+              type specimen book. It has survived not only five centuries, but
+              also the leap into electronic typesetting, remaining essentially
+              unchanged. It was popularised in the 1960s with the release of
+              Letraset sheets containing Lorem Ipsum passages, and more recently
+              with desktop publishing software like Aldus PageMaker including
+              versions of Lorem Ipsum.
             </p>
             <p>
-              - Total Number of unique Domains for 2020 and % of Growth versus
-              2019
-            </p>
-            <p>
-              - Total Number of Positive Mentions for 2020 and % of Growth
-              versus 2019
-            </p>
-            <p>
-              - Total Number of Negative Mentions for 2020 and % of Growth
-              versus 2019
-            </p>
-            <p>- Line Trend of Total of Mentions by day and Sentiment</p>
-            <p>- One line for Positive and Sentiment</p>
-            <p>- One line for Negative and Sentiment</p>
-            <p>- One line for Neutral and Sentiment</p>
-            <p>
-              The use can select any point of the trend line to see a popup with
-              a bar chart to see for that day the number of mentions by country.
-              When the user deselect the popup needs to desapear.
-            </p>
-            <p>
-              - For Brandwatch source one visualization that shows the size of
-              Listerine in Oral Care.
-            </p>
-            <p>
-              - I leave to them the way that they want to show this to see the
-              creativity.
-            </p>
-            <p>
-              In the end of the page they need to include the visualization sent
-              in the zip file developed in D3.js to see if they are able to
-              manage react and D3.
-            </p>
-            <p>
-              They can present the results in a PPT with screenshots of the apps
-              that they delevoped. Like that we don’t need to publish it in any
-              of our server.
+              Why do we use it? It is a long established fact that a reader will
+              be distracted by the readable content of a page when looking at
+              its layout. The point of using Lorem Ipsum is that it has a
+              more-or-less normal distribution of letters, as opposed to using
+              'Content here, content here', making it look like readable
+              English. Many desktop publishing packages and web page editors now
+              use Lorem Ipsum as their default model text, and a search for
+              'lorem ipsum' will uncover many web sites still in their infancy.
+              Various versions have evolved over the years, sometimes by
+              accident, sometimes on purpose (injected humour and the like).
             </p>
           </ListGroup.Item>
         </ListGroup>
