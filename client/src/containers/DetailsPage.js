@@ -1,30 +1,18 @@
 import React, { Component } from "react";
 import { Container, Col, Card, Image, Row } from "react-bootstrap";
-import testData from "./../data/test_data.json";
+import { connect } from "react-redux";
 
 class DetailsPage extends Component {
   constructor(props) {
     super(props);
-    this.state = { jsonData: testData.data };
-  }
-
-  componentDidMount() {
-    //Add code here
-  }
-
-  componentWillUnmount() {
-    //Add code here
   }
 
   render() {
     console.log(this.props.match.params.productId);
-    const { jsonData } = this.state;
     const productId = this.props.match.params.productId;
-    var product = jsonData
+    var product = this.props.products
       .filter((product) => product.product_id === productId)
       .map((filteredProduct) => filteredProduct);
-
-    console.log(JSON.stringify(product));
 
     return (
       <Container>
@@ -47,4 +35,8 @@ class DetailsPage extends Component {
   }
 }
 
-export default DetailsPage;
+const mapStateToProps = (state) => ({
+  products: state.products,
+});
+
+export default connect(mapStateToProps)(DetailsPage);

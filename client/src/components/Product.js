@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Col, Card, Carousel } from "react-bootstrap";
+import { Col, Card } from "react-bootstrap";
 import Moment from "react-moment";
 
 class Product extends Component {

@@ -5,36 +5,42 @@ import { connect } from "react-redux";
 import { setVisibilityFilter } from "../actions";
 import { VisibilityFilters } from "../actions";
 
-const ProductList = ({ products, sortBy }) => {
-  return (
-    <Container>
-      <Row style={{ marginTop: 10 }}>
-        <Dropdown>
-          <Dropdown.Toggle variant="success" id="dropdown-basic">
-            Sort by
-          </Dropdown.Toggle>
+class ProductList extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-          <Dropdown.Menu>
-            <Dropdown.Item onClick={() => sortBy("SHOW_LOW_HIGH")}>
-              Low to High(Price)
-            </Dropdown.Item>
-            <Dropdown.Item onClick={() => sortBy("SHOW_HIGH_LOW")}>
-              High to Low(Price)
-            </Dropdown.Item>
-            <Dropdown.Item onClick={() => sortBy("SHOW_NAME")}>
-              Name
-            </Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-      </Row>
-      <Row>
-        {products.map((item) => (
-          <Product key={item.product_id} product={item} />
-        ))}
-      </Row>
-    </Container>
-  );
-};
+  render() {
+    return (
+      <Container>
+        <Row style={{ marginTop: 10 }}>
+          <Dropdown>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              Sort by
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+              <Dropdown.Item onClick={() => this.props.sortBy("SHOW_LOW_HIGH")}>
+                Low to High(Price)
+              </Dropdown.Item>
+              <Dropdown.Item onClick={() => this.props.sortBy("SHOW_HIGH_LOW")}>
+                High to Low(Price)
+              </Dropdown.Item>
+              <Dropdown.Item onClick={() => this.props.sortBy("SHOW_NAME")}>
+                Name
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </Row>
+        <Row>
+          {this.props.products.map((item) => (
+            <Product key={item.product_id} product={item} />
+          ))}
+        </Row>
+      </Container>
+    );
+  }
+}
 
 const getVisibleProducts = (products, filter) => {
   switch (filter) {
