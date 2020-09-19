@@ -6,9 +6,9 @@ import { setVisibilityFilter } from "../actions";
 import { VisibilityFilters } from "../actions";
 
 class ProductList extends Component {
-  constructor(props) {
-    super(props);
-  }
+  sortBy = (byID) => {
+    this.props.sortBy(byID);
+  };
 
   render() {
     return (
@@ -20,13 +20,13 @@ class ProductList extends Component {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              <Dropdown.Item onClick={() => this.props.sortBy("SHOW_LOW_HIGH")}>
+              <Dropdown.Item onClick={() => this.sortBy("SHOW_LOW_HIGH")}>
                 Low to High(Price)
               </Dropdown.Item>
-              <Dropdown.Item onClick={() => this.props.sortBy("SHOW_HIGH_LOW")}>
+              <Dropdown.Item onClick={() => this.sortBy("SHOW_HIGH_LOW")}>
                 High to Low(Price)
               </Dropdown.Item>
-              <Dropdown.Item onClick={() => this.props.sortBy("SHOW_NAME")}>
+              <Dropdown.Item onClick={() => this.sortBy("SHOW_NAME")}>
                 Name
               </Dropdown.Item>
             </Dropdown.Menu>
@@ -51,7 +51,15 @@ const getVisibleProducts = (products, filter) => {
     case VisibilityFilters.SHOW_HIGH_LOW:
       return products.sort((a, b) => b.price - a.price);
     case VisibilityFilters.SHOW_NAME:
-      return products.sort((a, b) => a.title - b.title);
+      return products.sort(function (a, b) {
+        if (a.title < b.title) {
+          return -1;
+        }
+        if (a.title > b.title) {
+          return 1;
+        }
+        return 0;
+      });
     default:
       throw new Error("Unknown filter: " + filter);
   }
@@ -59,6 +67,7 @@ const getVisibleProducts = (products, filter) => {
 
 const mapStateToProps = (state) => ({
   products: getVisibleProducts(state.products, state.visibilityFilter),
+  visibilityFilter: state.visibilityFilter,
 });
 
 const mapDispatchToProps = (dispatch) => ({
